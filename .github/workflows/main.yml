@@ -416,5 +416,8 @@ jobs:
         qbs config --list
       shell: bash
     - name: Run Tests
-      run: ./scripts/test-qbs.sh ./release/install-root/bin
+      run: |
+        env
+        set -x
+        ./scripts/test-qbs.sh ./release/install-root/bin
       shell: bash
