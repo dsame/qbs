@@ -418,25 +418,29 @@ jobs:
     - name: Run Test in bash
       run: |
         set -x
-        export GIT_REDIRECT_STDERR='2>&1'
         ./release/install-root/bin/tst_api.exe
         ./release/install-root/bin/tst_blackbox-apple.exe
         ./release/install-root/bin/tst_blackbox-baremetal.exe
+      env:
+        GIT_REDIRECT_STDERR: 2>&1
       shell: bash
     - name: Run api test in cmd 1
       run: |
-        set GIT_REDIRECT_STDERR='2>&1'
         release\install-root\bin\tst_api.exe
+      env:
+        GIT_REDIRECT_STDERR: 2>&1
       shell: cmd
     - name: Run api test in cmd 2
       run: |
-        set GIT_REDIRECT_STDERR='2>&1'
         release\install-root\bin\tst_blackbox-apple.exe
+      env:
+        GIT_REDIRECT_STDERR: 2>&1
       shell: cmd
     - name: Run api test in cmd 3
       run: |
-        set GIT_REDIRECT_STDERR='2>&1'
         release\install-root\bin\tst_blackbox-baremetal.exe
+      env:
+        GIT_REDIRECT_STDERR: 2>&1
       shell: cmd
     - name: Run Tests
       run: |
@@ -444,4 +448,6 @@ jobs:
         set -x
         export GIT_REDIRECT_STDERR='2>&1'
         ./scripts/test-qbs.sh ./release/install-root/bin
+      env:
+        GIT_REDIRECT_STDERR: 2>&1
       shell: bash
