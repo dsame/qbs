@@ -28,7 +28,6 @@
 ## General Public License version 2.0 or (at your option) the GNU General
 ## Public license version 3 or any later version approved by the KDE Free
 ## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
 ## included in the packaging of this file. Please review the following
 ## information to ensure the GNU General Public License requirements will
 ## be met: https://www.gnu.org/licenses/gpl-2.0.html and
@@ -53,5 +52,14 @@ qbs-config --list profiles
 CPUS=$("$(dirname "$0")"/cpu-count.sh)
 
 export QBS_AUTOTEST_PROFILE=${QBS_AUTOTEST_PROFILE:-qt}
+set -x
 echo "Running Qbs tests (${CPUS} jobs in parallel)."
-find $1 -name "tst_*" | xargs -I{} -n1 -P${CPUS} bash -c 'export LOG=$(mktemp) ; $({} > ${LOG} 2>&1) ; export RESULT=$? ; cat ${LOG} ; exit ${RESULT}'
+echo 'current dir'
+pwd
+echo "test dir '$1'"
+ls -la
+ls -la ./release
+ls -la ./release/install-root
+ls -la ./release/install-root/bin
+find $1 -name "tst_*"
+find $1 -name "tst_*" | xargs -I{} -n1 -P${CPUS} bash -c 'export LOG=$(mktemp) ; echo "LOG=${LOG} {}"; $({} >> ${LOG} 2>&1) ; export RESULT=$? ; cat ${LOG} ; exit ${RESULT}'

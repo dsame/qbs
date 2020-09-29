@@ -375,12 +375,12 @@ jobs:
             toolchain: 'win64_msvc2019_64',
             testProfile: 'MSVC2019-x64',
           }
-        - {
-            name: 'Run Windows tests (clang-cl)',
-            target: 'desktop',
-            toolchain: 'win64_msvc2019_64',
-            testProfile: 'clang-cl-x86_64',
-          }
+#        - {
+#            name: 'Run Windows tests (clang-cl)',
+#            target: 'desktop',
+#            toolchain: 'win64_msvc2019_64',
+#            testProfile: 'clang-cl-x86_64',
+#          }
     env:
       QTEST_FUNCTION_TIMEOUT: 9000000
       QBS_AUTOTEST_PROFILE: 'qt'
