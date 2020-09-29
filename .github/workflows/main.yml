@@ -422,11 +422,12 @@ jobs:
         ./release/install-root/bin/tst_blackbox-apple.exe
         ./release/install-root/bin/tst_blackbox-baremetal.exe
       shell: bash
-    - name: Run api test in pwsh
+    - name: Run api test in cmd
       run: |
         release\install-root\bin\tst_api.exe
         release\install-root\bin\tst_blackbox-apple.exe
         release\install-root\bin\tst_blackbox-baremetal.exe
+      shell: cmd
     - name: Run Tests
       run: |
         env
