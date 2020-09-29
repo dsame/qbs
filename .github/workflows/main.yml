@@ -421,3 +421,6 @@ jobs:
         set -x
         ./scripts/test-qbs.sh ./release/install-root/bin
       shell: bash
+    - name: Run api test
+      run: |
+        release\install-root\bin\tst_api.exe
