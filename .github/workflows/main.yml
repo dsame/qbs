@@ -415,12 +415,6 @@ jobs:
         qbs config defaultProfile qt
         qbs config --list
       shell: bash
-    - name: Run Tests
-      run: |
-        env
-        set -x
-        ./scripts/test-qbs.sh ./release/install-root/bin
-      shell: bash
     - name: Run Test in bash
       run: |
         set -x
@@ -433,3 +427,9 @@ jobs:
         release\install-root\bin\tst_api.exe
         release\install-root\bin\tst_blackbox-apple.exe
         release\install-root\bin\tst_blackbox-baremetal.exe
+    - name: Run Tests
+      run: |
+        env
+        set -x
+        ./scripts/test-qbs.sh ./release/install-root/bin
+      shell: bash

@@ -62,7 +62,7 @@ ls -la ./release
 ls -la ./release/install-root
 ls -la ./release/install-root/bin
 find $1 -name "tst_*"
-find $1 -name "tst_*" |head -1 3 xargs -I{} -n1 -P${CPUS} bash -c 'export LOG=$(mktemp) ; echo "LOG=${LOG} {}"; $({});$({} >> ${LOG} 2>&1) ; export RESULT=$? ; ls -l ${LOG};cat ${LOG} ; exit ${RESULT}'
+find $1 -name "tst_*" |head -3 |xargs -I{} -n1 -P${CPUS} bash -c 'export LOG=$(mktemp) ; echo "LOG=${LOG} {}"; $({});$({} >> ${LOG} 2>&1) ; export RESULT=$? ; ls -l ${LOG};cat ${LOG} ; exit ${RESULT}'
 echo run test api
 ./release/install-root/bin/tst_api.exe
 ./release/install-root/bin/tst_blackbox-apple.exe
