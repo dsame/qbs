@@ -418,7 +418,7 @@ jobs:
     - name: Run Test in bash
       run: |
         set -x
-        ./release/install-root/bin/tst_api.exe 2>&1
+        bash -c './release/install-root/bin/tst_api.exe 2>&1'
         ./release/install-root/bin/tst_blackbox-apple.exe 2>&1
         ./release/install-root/bin/tst_blackbox-baremetal.exe 2>&1
       env:
